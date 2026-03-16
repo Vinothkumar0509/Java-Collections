@@ -1,6 +1,6 @@
-package arrayList.model;
+package comparator;
 
-public class Employee {
+public class EmployeeComparator {
 
     private int id;
     private String name;
@@ -8,6 +8,15 @@ public class Employee {
     private double salary;
     private boolean isActive;
     private String role;
+
+    public EmployeeComparator(int id, String name, int age, double salary, boolean isActive, String role) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+        this.isActive = isActive;
+        this.role = role;
+    }
 
     public int getId() {
         return id;
@@ -56,6 +65,7 @@ public class Employee {
     public void setRole(String role) {
         this.role = role;
     }
+
 
     @Override
     public String toString() {

@@ -1,13 +1,24 @@
-package arrayList.model;
+package comparator;
 
-public class Employee {
+import java.util.List;
+
+public class Employee implements Comparable{
 
     private int id;
     private String name;
     private int age;
     private double salary;
     private boolean isActive;
-    private String role;
+    private List<String> role;
+
+    public Employee(int id, String name, int age, double salary, boolean isActive, List<String> role) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+        this.isActive = isActive;
+        this.role = role;
+    }
 
     public int getId() {
         return id;
@@ -49,13 +60,14 @@ public class Employee {
         isActive = active;
     }
 
-    public String getRole() {
+    public List<String> getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(List<String> role) {
         this.role = role;
     }
+
 
     @Override
     public String toString() {
@@ -67,5 +79,15 @@ public class Employee {
                 ", isActive=" + isActive +
                 ", role='" + role + '\'' +
                 '}';
+    }
+
+
+    @Override
+    public int compareTo(Object o) {
+        Employee that = (Employee) o;
+        if(this.age > that.age) {  // 50000 <-> 30000, -> 50000 70000
+            return 1;  // It should be Positive Number
+        }
+        return -1;
     }
 }
